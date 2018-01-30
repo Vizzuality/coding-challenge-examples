@@ -26,7 +26,7 @@ Make it look good, doesn't have to be very sophisticated.
 
 `http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png`
 
-## Data
+## Layers
 
 ```json
 [
