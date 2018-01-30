@@ -1,9 +1,9 @@
-> This project includes a basic react boilerplate. If you rather use another boilerplate such as
+> This project includes a basic react boilerplate. If you'd rather use another boilerplate such as
 > create-react-app, angular-cli, or vue-cli, feel free to do so.
 
 ## Objective
 
-Write a frontend app that fetches layers from an URL and displays it on a map. The user should be able to enable/disable layers within a legend component. The legend component should have a toggle (for enabling/disabling) and an info button.
+Write a small frontend app that fetches layers from an URL and displays them on a map. The user should be able to enable/disable layers within a legend component. The legend component should have a toggle (for enabling/disabling) and an info button.
 When clicking on the info button a modal should open displaying the layer's details.
 
 Make it look good, doesn't have to be very sophisticated.
@@ -20,7 +20,7 @@ Make it look good, doesn't have to be very sophisticated.
 
 * Use a CSS-in-JS solution.
 * Include a loading spinner or placeholder.
-* Describe any bottleneck or difficulties you've might found.
+* Describe any bottleneck or difficulties you might find.
 
 ## Basemap
 
