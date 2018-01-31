@@ -6,7 +6,7 @@ Use the project boilerplate generator of your choosing. You're free to use the o
 
 Write a small frontend app that fetches photos data from an URL and displays them on a grid of cards. Each card should have the photo title, a link to the large version and a thumbnail. The grid should include pagination or lazy loading.
 
-Include a button that lets you sort by title in ascending/descending order.
+Include a button that lets you sort by title in ascending/descending order, and displays the current order. (See top right corner of the wireframe).
 
 Make it look good, doesn't have to be very sophisticated.
 
