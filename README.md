@@ -30,3 +30,7 @@ Make it look good, doesn't have to be very sophisticated.
 ## API Docs
 
 `https://github.com/typicode/json-server`
+
+## Wireframe
+
+![image](https://raw.githubusercontent.com/Vizzuality/coding-challenge-examples/cards-grid/public/images/grid-wireframe.png)
