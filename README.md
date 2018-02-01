@@ -19,7 +19,7 @@ Make it look good, doesn't have to be very sophisticated.
 
 ## Bonus
 
-* Use a CSS-in-JS solution.
+* Use some form of modular/scoped css or CSS-in-JS solution.
 * Include a loading spinner or placeholder.
 * Describe any bottleneck or difficulties you might find.
 
