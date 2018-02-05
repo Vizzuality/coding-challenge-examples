@@ -3,12 +3,9 @@ body {
   height: 100%;
   width: 100%;
 }
-.content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
+
+body {
+  font-family: 'Oswald', sans-serif;
 }
 
 .wrapper {
@@ -18,13 +15,4 @@ body {
   justify-content: space-between;
   height: 30%;
   width: 100%;
-}
-
-.logo {
-  height: calc(100% - 20px);
-  width: 50%;
-  background-image: url('/images/vizzuality-logo.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
 }
