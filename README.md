@@ -4,7 +4,7 @@ Use the project boilerplate generator of your choice. You're free to use the one
 
 ## Objective
 
-Write a small frontend app that fetches photos data from an URL and displays them on a grid of cards. Each card should have the photo title, a link to the large version and a thumbnail. The grid should include pagination or lazy loading.
+Write a small frontend app that fetches photos data from an URL and displays them on a grid of cards. Each card should have the photo title, a link to the large version and a thumbnail, and all cards should have the same height. The grid should include pagination or lazy loading.
 
 Include a button that lets you sort by title in ascending/descending order, and displays the current order. (See top right corner of the wireframe).
 
