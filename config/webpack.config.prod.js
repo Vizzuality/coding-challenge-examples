@@ -5,12 +5,5 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = merge(webpackBaseConfig, {
   devtool: 'source-map',
-  plugins: [
-    new webpack.HashedModuleIdsPlugin(),
-    new UglifyJSPlugin({
-      compress: {
-        screw_ie8: true
-      }
-    })
-  ]
+  plugins: [new webpack.HashedModuleIdsPlugin(), new UglifyJSPlugin()]
 });

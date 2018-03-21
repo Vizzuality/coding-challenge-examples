@@ -14,7 +14,7 @@ Make it look good, doesn't have to be very sophisticated.
 
 * Use ES6+ syntax.
 * Use React or any other library of your choice (even no library at all) as long as you demonstrate a component oriented architecture.
-* Use Redux or any other state management library or approach of your choice. 
+* Use Redux or any other state management library or approach of your choice.
 * Use the Container-Component pattern to connect the state from the store with the components.
 
 ## Bonus
