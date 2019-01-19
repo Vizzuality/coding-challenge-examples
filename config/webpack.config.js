@@ -14,7 +14,6 @@ module.exports = {
     publicPath: '/'
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin({ name: 'common' }),
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       filename: 'index.html',
