@@ -13,6 +13,7 @@ Each card should have the image and title linking to the post, and all cards sho
 Please note: you don't need to include pagination and sorting as shown in the wireframe.
 
 ## Requirements
+
 - Use ES6+ syntax;
 - Use React or any other library of your choice (even no library at all) as long as you demonstrate a component oriented architecture.
 
