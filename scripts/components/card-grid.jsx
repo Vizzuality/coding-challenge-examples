@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import styles from './card-grid-styles.scss';
+import Card from './card.jsx';
+import styles from './card-grid-styles.css';
 
 const CardGrid = ({ photos }) => {
   const [sort, setSort] = useState(true);
   const [sortedPhotos, setSortedPhotos] = useState([]);
 
   useEffect(() => {
-    const sortedPhotos = [...photos];
-    sortedPhotos.sort((a, b) => {
+    const photosClone = [...photos];
+    photosClone.sort((a, b) => {
       const titleA = a.title.toLowerCase();
       const titleB = b.title.toLowerCase();
       return titleA <= titleB || sort ? 1 : -1;
     });
-    setSortedPhotos(sortedPhotos);
+    setSortedPhotos(photosClone);
   }, [photos, sort]);
 
   return (
@@ -22,10 +23,7 @@ const CardGrid = ({ photos }) => {
       </button>
       <div className={styles.grid}>
         {sortedPhotos.map(photo => (
-          <div key={photo.id}>
-            <h3>{photo.title}</h3>
-            <img src={photo.thumbnailUrl} alt={photo.title} />
-          </div>
+          <Card {...photo} key={photo.id} className={styles.card} />
         ))}
       </div>
     </React.Fragment>

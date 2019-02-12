@@ -1,14 +1,15 @@
 import React from 'react';
+import { hot } from 'react-hot-loader';
 import CardGridContainer from './card-grid-container';
+import styles from './app-styles.css';
 
 const App = () => (
-  <main className="content">
-    <div className="wrapper">
-      <div className="logo" />
+  <main className={styles.content}>
+    <div className={styles.wrapper}>
       <p>Hello World</p>
       <CardGridContainer />
     </div>
   </main>
 );
 
-export default App;
+export default hot(module)(App);
