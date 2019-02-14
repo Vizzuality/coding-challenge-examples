@@ -1,14 +1,14 @@
 const BASE_URL = 'https://jsonplaceholder.typicode.com/';
 
 const JSONPlaceholderAPI = {
-  getPhotos(callback, params) {
-    const photoParams = Object.assign({ limit: 9, page: 1, sort: 'title', order: 'asc' }, params);
+  getPhotos(callback, { limit = 9, page = 1, sort = 'title', order = true } = {}) {
+    const orderS = order ? 'asc' : 'desc';
     return this.get('photos', callback, {
       params: {
-        _limit: photoParams.limit,
-        _page: photoParams.page,
-        _sort: photoParams.sort,
-        _order: photoParams.order
+        _limit: limit,
+        _page: page,
+        _sort: sort,
+        _order: orderS
       }
     });
   },

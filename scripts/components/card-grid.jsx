@@ -1,29 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Card from './card.jsx';
 import styles from './card-grid-styles.css';
 
-const CardGrid = ({ photos }) => {
-  const [sort, setSort] = useState(true);
-  const [sortedPhotos, setSortedPhotos] = useState([]);
-
-  useEffect(() => {
-    const photosClone = [...photos];
-    photosClone.sort((a, b) => {
-      const titleA = a.title.toLowerCase();
-      const titleB = b.title.toLowerCase();
-      return titleA <= titleB || sort ? 1 : -1;
-    });
-    setSortedPhotos(photosClone);
-  }, [photos, sort]);
-
+const CardGrid = ({ photos, onOrderChange, onPageChange }) => {
+  setTimeout(() => onPageChange(), 2000);
   return (
     <React.Fragment>
-      <button type="button" onClick={() => setSort(!sort)}>
+      <button type="button" onClick={onOrderChange}>
         Title
       </button>
       <div className={styles.grid}>
-        {sortedPhotos.map(photo => (
-          <Card {...photo} key={photo.id} className={styles.card} />
+        {photos.map((photo, index) => (
+          <Card {...photo} key={index} className={styles.card} />
         ))}
       </div>
     </React.Fragment>
