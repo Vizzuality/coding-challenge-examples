@@ -10,7 +10,7 @@ const CardGridContainer = () => {
   useEffect(() => {
     api.getPhotos(
       newPhotos => {
-        setPhotos([...newPhotos, ...photos]);
+        setPhotos([...photos, ...newPhotos]);
       },
       { page, order }
     );
