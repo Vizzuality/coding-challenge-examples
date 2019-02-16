@@ -1,7 +1,11 @@
 import { useRef, useEffect } from 'react';
 
-const useOnVisibleRef = (callback, { once = true, root, rootMargin, threshold }, dependencies) => {
-  const ref = useRef(null);
+const useOnVisibleRef = (
+  callback,
+  { once = true, root, rootMargin, threshold },
+  dependencies = []
+) => {
+  const ref = useRef();
   useEffect(() => {
     const element = ref.current;
     if (!element) {

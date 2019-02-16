@@ -1,9 +1,9 @@
 const BASE_URL = 'https://jsonplaceholder.typicode.com/';
 
 const JSONPlaceholderAPI = {
-  getPhotos(callback, { limit = 9, page = 1, sort = 'title', order = true } = {}) {
+  getPhotos({ limit, page, sort, order } = {}) {
     const orderS = order ? 'asc' : 'desc';
-    return this.get('photos', callback, {
+    return this.get('photos', {
       params: {
         _limit: limit,
         _page: page,
@@ -13,7 +13,7 @@ const JSONPlaceholderAPI = {
     });
   },
 
-  get(url, callback, options = {}) {
+  get(url, options = {}) {
     let fullUrl = new URL(url, BASE_URL);
     const params = new URLSearchParams();
     if (options.params) {
@@ -21,10 +21,7 @@ const JSONPlaceholderAPI = {
     }
     fullUrl += `?${params.toString()}`;
 
-    fetch(fullUrl, options)
-      .then(response => response.json())
-      .then(callback)
-      .catch(() => callback(null));
+    return fetch(fullUrl, options).then(response => response.json());
   }
 };
 

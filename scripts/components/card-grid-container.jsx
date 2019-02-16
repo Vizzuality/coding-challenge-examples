@@ -1,28 +1,30 @@
-import React, { useState, useEffect } from 'react';
-import api from '../api';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchPhotos, fetchNextPage, changePhotosOrder } from '../actions';
 import CardGrid from './card-grid';
 
-const CardGridContainer = () => {
-  const [order, setOrder] = useState(true);
-  const [page, setPage] = useState(1);
-  const [photos, setPhotos] = useState([]);
-
+const CardGridContainer = ({ photos, fetchPhotos, fetchNextPage, changePhotosOrder, ...props }) => {
   useEffect(() => {
-    api.getPhotos(
-      newPhotos => {
-        setPhotos([...photos, ...newPhotos]);
-      },
-      { page, order }
-    );
-  }, [order, page]);
+    fetchPhotos();
+  }, []);
 
   return (
     <CardGrid
       photos={photos}
-      onOrderChange={() => setOrder(!order)}
-      onPageChange={() => setPage(page + 1)}
+      {...props}
+      onOrderChange={() => changePhotosOrder()}
+      onNextPage={() => fetchNextPage()}
     />
   );
 };
 
-export default CardGridContainer;
+const mapStateToProps = state => state.photos;
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ fetchPhotos, fetchNextPage, changePhotosOrder }, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CardGridContainer);
