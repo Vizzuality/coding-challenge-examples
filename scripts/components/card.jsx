@@ -1,11 +1,14 @@
 import React, { forwardRef } from 'react';
 import LazyImage from './lazy-image.jsx';
+
 import styles from './card-styles.css';
 
-const Card = forwardRef(({ id, title, thumbnailUrl, className }, ref) => (
+const Card = forwardRef(({ id, title, url, thumbnailUrl, className }, ref) => (
   <div ref={ref} key={id} className={`${styles.card} ${className}`}>
-    <h3>{title}</h3>
-    <LazyImage url={thumbnailUrl} alt={title} className={styles.image} />
+    <a className={styles.link} href={url} rel="noopener noreferrer" target="_blank">
+      <LazyImage url={thumbnailUrl} alt={title} className={styles.image} />
+      <h3 className={styles.title}>{title}</h3>
+    </a>
   </div>
 ));
 

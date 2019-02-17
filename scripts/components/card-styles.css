@@ -2,7 +2,33 @@
   text-align: center;
 }
 
+.link {
+  border-radius: 8px;
+  box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.06);
+  background-color: transparent;
+  color: inherit;
+  display: block;
+  padding: 20px;
+  text-decoration: none;
+  transition: box-shadow 200ms ease-in-out;
+}
+
+.link:hover {
+  box-shadow: 0px 1px 20px 5px rgba(0, 0, 0, 0.06);
+}
+
+.title {
+  font-size: 1rem;
+  margin: 20px 0px 0px 0px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
 .image {
-  height: 150px;
-  width: 150px;
+  border-radius: 4px;
+  height: var(--grid-card-tumbnail-size);
+  overflow: hidden;
+  width: var(--grid-card-tumbnail-size);
 }

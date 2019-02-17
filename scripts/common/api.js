@@ -2,7 +2,7 @@ const BASE_URL = 'https://jsonplaceholder.typicode.com/';
 
 const JSONPlaceholderAPI = {
   getPhotos({ limit, page, sort, order } = {}) {
-    const orderS = order ? 'asc' : 'desc';
+    const orderS = order === 'descending' ? 'desc' : 'asc';
     return this.get('photos', {
       params: {
         _limit: limit,

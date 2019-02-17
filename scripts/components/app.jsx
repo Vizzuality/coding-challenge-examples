@@ -6,7 +6,6 @@ import styles from './app-styles.css';
 const App = () => (
   <main className={styles.content}>
     <div className={styles.wrapper}>
-      <p>Hello World</p>
       <CardGridContainer />
     </div>
   </main>

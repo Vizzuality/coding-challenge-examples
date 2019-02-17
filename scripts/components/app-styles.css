@@ -1,10 +1,10 @@
 .content {
-  display: flex;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
+  color: var(--text-color);
+  --grid-card-tumbnail-size: 150px;
 }
 
 .wrapper {
   max-width: 1200px;
+  width: 100%;
+  margin: 0px auto;
 }

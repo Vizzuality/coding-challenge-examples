@@ -19,7 +19,7 @@ const useOnVisibleRef = (
           callback();
         }
       },
-      { root: root, rootMargin: rootMargin, threshold: threshold }
+      { root, rootMargin, threshold }
     );
     observer.observe(element);
     return () => observer.unobserve(element);

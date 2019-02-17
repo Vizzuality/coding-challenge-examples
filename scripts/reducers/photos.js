@@ -2,7 +2,7 @@ import {
   FETCH_PHOTOS,
   FETCH_PHOTOS_SUCCESS,
   FETCH_PHOTOS_ERROR,
-  CHANGE_PHOTOS_ORDER,
+  SET_PHOTOS_ORDER,
   SET_PHOTOS_PAGE
 } from '../actions';
 
@@ -11,10 +11,11 @@ const initialState = {
   fetching: false,
   fetched: true,
   error: null,
-  limit: 9,
+  limit: 8,
   page: 1,
   sort: 'title',
-  order: true
+  order: 'ascending',
+  orderOptions: ['ascending', 'descending']
 };
 
 export default (state = initialState, action) => {
@@ -37,11 +38,11 @@ export default (state = initialState, action) => {
         error: action.error
       };
     }
-    case CHANGE_PHOTOS_ORDER: {
+    case SET_PHOTOS_ORDER: {
       return {
         ...state,
         order: action.order,
-        photos: []
+        photos: state.order === action.order ? state.photos : []
       };
     }
     case SET_PHOTOS_PAGE: {

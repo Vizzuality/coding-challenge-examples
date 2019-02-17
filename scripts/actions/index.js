@@ -1,9 +1,9 @@
-import api from '../api';
+import api from '../common/api';
 
 export const FETCH_PHOTOS = 'FETCH_PHOTOS';
 export const FETCH_PHOTOS_SUCCESS = 'FETCH_PHOTOS_SUCCESS';
 export const FETCH_PHOTOS_ERROR = 'FETCH_PHOTOS_ERROR';
-export const CHANGE_PHOTOS_ORDER = 'CHANGE_PHOTOS_ORDER';
+export const SET_PHOTOS_ORDER = 'SET_PHOTOS_ORDER';
 export const SET_PHOTOS_PAGE = 'SET_PHOTOS_PAGE';
 
 export const fetchPhotos = () => (dispatch, getState) => {
@@ -18,10 +18,12 @@ export const fetchPhotos = () => (dispatch, getState) => {
 
 export const setPhotosPage = page => dispatch => dispatch({ type: SET_PHOTOS_PAGE, page });
 
-export const changePhotosOrder = order => (dispatch, getState) => {
+export const setPhotosOrder = order => (dispatch, getState) => {
   const { photos } = getState();
-  const value = order !== undefined ? order : !photos.order;
-  dispatch({ type: CHANGE_PHOTOS_ORDER, order: value });
+  if (!photos.orderOptions.includes(order) || order === photos.order) {
+    return;
+  }
+  dispatch({ type: SET_PHOTOS_ORDER, order });
   dispatch(setPhotosPage(1));
   dispatch(fetchPhotos());
 };
