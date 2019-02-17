@@ -1,0 +1,10 @@
+.content {
+  color: var(--text-color);
+  --grid-card-tumbnail-size: 150px;
+}
+
+.wrapper {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0px auto;
+}

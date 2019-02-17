@@ -1,0 +1,57 @@
+.container {
+  display: inline-block;
+  position: relative;
+}
+
+.container.loaded {
+  animation-play-state: paused;
+}
+
+.container .image {
+  opacity: 0;
+}
+
+.container.loaded .image {
+  animation: fade-in 250ms ease-in-out forwards;
+}
+
+.container .loader {
+  background-color: lightgray;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  animation: loading 500ms infinite linear alternate;
+}
+
+.container.loaded .loader {
+  opacity: 0;
+}
+
+@keyframes loading {
+  0% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes loaded {
+  0% {
+    background-color: gray;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

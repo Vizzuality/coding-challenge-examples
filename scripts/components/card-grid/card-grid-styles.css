@@ -1,0 +1,38 @@
+.container {
+  text-align: right;
+}
+
+.dropdown {
+  align-self: flex-end;
+  text-transform: capitalize;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+
+.card {
+  margin-bottom: 2rem;
+  width: calc(25% - 2rem);
+}
+
+@media screen and (max-width: 975px) {
+  .card {
+    width: calc(33.33% - 2rem);
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .card {
+    width: calc(50% - 2rem);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .card {
+    width: calc(80%);
+  }
+}

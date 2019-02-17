@@ -1,9 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { hot } from 'react-hot-loader';
+import { Provider } from 'react-redux';
+
 import App from './components/app';
+import store from './store';
+
 import './index.css';
 
-const HotRootComponent = hot(module)(App);
-
-ReactDOM.render(<HotRootComponent />, document.getElementById('root'));
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
