@@ -9,7 +9,6 @@
     "@babel/preset-react"
   ],
   "plugins": [
-    ["@babel/plugin-syntax-dynamic-import", { "polyfill": false, "regenerator": true }],
     "@babel/plugin-syntax-object-rest-spread",
     ["@babel/plugin-proposal-class-properties", { "spec": true }],
     "react-hot-loader/babel"

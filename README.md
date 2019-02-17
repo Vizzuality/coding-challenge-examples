@@ -1,25 +1,35 @@
-# Full stack developer - frontend challenge
-
 ## Project boilerplate generator
 
 Use the project boilerplate generator of your choice. You're free to use the one on this repo.
 
 ## Objective
 
-Write a small frontend app that loads posts data from a csv file to display on a grid of cards. The attached posts.csv file contains image urls, titles and urls of posts. You can import the csv as a json/js object.
+Write a small frontend app that fetches photos data from an URL and displays them on a grid of cards. Each card should have the photo title, a link to the large version and a thumbnail, and all cards should have the same height. The grid should include pagination or lazy loading.
 
-Each card should have the image and title linking to the post, and all cards should have the same height.
+Include a button that lets you sort by title in ascending/descending order, and displays the current order. (See top right corner of the wireframe).
 
-Please note: you don't need to include pagination and sorting as shown in the wireframe.
+Make it look good, doesn't have to be very sophisticated.
 
 ## Requirements
 
-- Use ES6+ syntax;
+- Use ES6+ syntax.
 - Use React or any other library of your choice (even no library at all) as long as you demonstrate a component oriented architecture.
+- Use Redux or any other state management library or approach of your choice.
+- Use the Container-Component pattern to connect the state from the store with the components.
+
+## Bonus
+
+- Use some form of modular/scoped css or CSS-in-JS solution.
+- Include a loading spinner or placeholder.
+- Describe any bottleneck or difficulties you might find.
 
 ## Data
 
-[posts.csv](data/posts.csv)
+`https://jsonplaceholder.typicode.com/photos?_limit=9&_page=1&_sort=title&_order=asc`
+
+## API Docs
+
+`https://github.com/typicode/json-server`
 
 ## Wireframe
 
