@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
-import useOnClickOutside from '../common/hooks/useOnClickOutside';
+import PropTypes from 'prop-types';
+import { useOnClickOutside } from '../../../common/hooks';
 
 import styles from './dropdown-styles.css';
 
@@ -29,4 +30,15 @@ const Dropdown = ({ name, value, options, onChange, className }) => {
     </div>
   );
 };
+
+Dropdown.propTypes = {
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  options: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onChange: PropTypes.func.isRequired,
+  className: PropTypes.string
+};
+
+Dropdown.defaultProps = { className: null };
+
 export default Dropdown;

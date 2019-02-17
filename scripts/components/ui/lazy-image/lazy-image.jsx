@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import useOnVisibleRef from '../../../common/hooks/useOnVisibleRef';
+
 import styles from './lazy-image-styles.css';
-import useOnVisibleRef from '../common/hooks/useOnVisibleRef';
 
 const LazyImage = ({ url, alt, className, margin = '100px' }) => {
   const [loadedUrl, setLoadedUrl] = useState(null);
@@ -34,5 +36,14 @@ const LazyImage = ({ url, alt, className, margin = '100px' }) => {
     </div>
   );
 };
+
+LazyImage.propTypes = {
+  url: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+  margin: PropTypes.string,
+  className: PropTypes.string
+};
+
+LazyImage.defaultProps = { margin: '100px', className: null };
 
 export default LazyImage;

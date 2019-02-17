@@ -1,6 +1,7 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
-import CardGridContainer from './card-grid-container';
+import CardGridContainer from '../card-grid-container';
+
 import styles from './app-styles.css';
 
 const App = () => (

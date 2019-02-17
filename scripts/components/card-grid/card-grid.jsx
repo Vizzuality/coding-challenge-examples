@@ -1,7 +1,8 @@
 import React from 'react';
-import Card from './card.jsx';
-import Dropdown from './dropdown';
-import useOnVisibleRef from '../common/hooks/useOnVisibleRef';
+import PropTypes from 'prop-types';
+import Dropdown from '../ui/dropdown';
+import Card from '../card';
+import { useOnVisibleRef } from '../../common/hooks';
 
 import styles from './card-grid-styles.css';
 
@@ -45,6 +46,17 @@ const CardGrid = ({
       </div>
     </div>
   );
+};
+
+CardGrid.propTypes = {
+  photos: PropTypes.arrayOf(PropTypes.object).isRequired,
+  fetching: PropTypes.bool.isRequired,
+  fetched: PropTypes.bool.isRequired,
+  sort: PropTypes.string.isRequired,
+  order: PropTypes.string.isRequired,
+  orderOptions: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onOrderChange: PropTypes.func.isRequired,
+  onNextPage: PropTypes.func.isRequired
 };
 
 export default CardGrid;
