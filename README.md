@@ -1,16 +1,23 @@
-# Full stack developer - backend challenge
+# Software engineer - importer challenge
 
-Using Ruby on Rails we would like you to complete the following task.
+As part of this exercise, you need to build a small REST API. This API should have two endpoints:
 
-The attached emissions.csv file contains CO2 emissions data, which need to be imported into the database (PostgreSQL). This data will be used to render filterable charts in the future, but the exact specification of that feature is not yet known. This is a sample dataset; the full dataset will be 10 times the size, but will follow the same format.
+- POST: expects a CSV and saves it to a mongo/elasticsearch database
+- GET: reads that same mongo/elasticsearch database and serves the content as a JSON
+
+Each endpoint needs to be implemented as its own standalone application. They will share the underlying data storage, but will not be aware of each other.
+
+Both apps, as well as the underlying dependencies must be configured to run using a `docker-compose` file you must provide. You can use either nodejs, python. Extra kudos will be given if you use both, one per app. 
+
+Document on the code/config files any significant decisions you make as you go (be concise). Tests are a plus.
 
 ## Requirements:
 
-- Use Active Record Migrations to create database objects;
-- Use Active Record to create the models;
-- Implement a rake task to import data from the csv file, from local file system.
+- Use your favourite ORM/DB abstraction lib to handle database objects.
+- Use a framework - it may be overkill for such small apps, but real-world apps are never this small.
+- Document how to start your application in a docker + docker-compose environment. 
 
-There is no need to create a web interface; you won't need to write any controller or view code.
+There is no need to create a web interface
 
 ## Data
 
