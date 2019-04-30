@@ -19,6 +19,14 @@ Document on the code/config files any significant decisions you make as you go (
 
 There is no need to create a web interface
 
+## Things to keep in mind:
+
+- Be pragmatic and mindful of the trade-off between feature-completeness and complexity/performance.
+- In a real world scenario, the data file could be a lot larger.
+- Assume a "write once, read many" scenario, where users may be willing to wait a few minutes for the file to be uploaded, depending on its size, but the GET endpoint needs to be fast.
+- This code challenge should match your CV. If you have experience with python or node, use that language. If you have experience with both, use this as an opportunity to impress us with your multi-language skills.
+
+
 ## Data
 
 [emissions.csv](data/emissions.csv)
