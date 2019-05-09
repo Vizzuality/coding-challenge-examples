@@ -3,7 +3,7 @@
 As part of this exercise, you need to build a small REST API. This API should have two endpoints:
 
 - POST: expects a CSV and saves it to a mongo/elasticsearch database
-- GET: reads that same mongo/elasticsearch database and serves the content as a JSON
+- GET: reads that same mongo/elasticsearch database and serves the content as a JSON. Filters on the data should be implemented, preferently as query parameters.
 
 Each endpoint needs to be implemented as its own standalone application. They will share the underlying data storage, but will not be aware of each other.
 
