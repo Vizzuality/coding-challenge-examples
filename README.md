@@ -44,7 +44,7 @@ Found the basic requirements too easy? Want to go the extra mile just to impress
 - In a real world scenario, the data file could be a lot larger.
 - Assume a "write once, read many" scenario, where users may be willing to wait a few minutes for the file to be uploaded, depending on its size, but the GET endpoint needs to be fast.
 - This code challenge should match your CV. If you have experience with python or node, use that language. If you have experience with both, use this as an opportunity to impress us with your multi-language skills.
-- **Please submit your ideas to us by Thursday 12th September (close of play)**. This will give us enough time to review your challenge with the rest of the team before the next interview. 
+- **Please submit your ideas to us in 1 week (max)**. This will give us enough time to review your challenge with the rest of the team before the next interview. 
 - Based on previous candidate experiences, we believe **it will take you between 6 and 10 hours to complete the challenge**. If you see yourself allocating a lot more than that, you are including too much and/or overcomplicating it :)
 
 
