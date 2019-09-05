@@ -61,5 +61,5 @@ Found the basic requirements too easy? Want to go the extra mile just to impress
 - The interview will last 120 minutes (max)
 
 
-**“The Importer Challenge”, has been created with the sole intention of being used as a guiding document for the current recruitment process, and we won't be using any part of it within our projects.**
+**“The Importer Challenge” has been created with the sole intention of being used as a guiding document for the current recruitment process. This means we won't be using it (all or parts of it) within our projects.**
 
