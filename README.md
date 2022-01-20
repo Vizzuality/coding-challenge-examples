@@ -1,21 +1,20 @@
-# Software engineer @ Vizzuality "Importer Challenge"
+# Software engineer @ Vizzuality "Large File Importer Challenge"
 
 ## Instructions for completing and submitting the challenge:
 
-First things first. This coding challenge is about creating a space for you to share with us how you work and reason, what things you care about when doing coding work, and how you approach problem solving.
+First things first. This coding challenge is about creating a space for you to share with us how you work and reason, what things you care about when doing coding work, and how you approach problem-solving.
 
 As such, through this challenge we are not expecting to check if you know the finest algorithms, have all the right answers to a given situation or if you are the best coder in the world. We believe there are no right or wrong answers, so please make yourself comfortable and focus on what you know best.
 
 ## 1. This is what you need to do:
 
-As part of this exercise, you need to build a small REST API. This API should have two endpoints:
+As part of this exercise, you need to build a small REST API. This API should have three endpoints:
 
-- POST: expects a CSV payload and saves the data to a MongoDB or Elasticsearch database
-- GET: reads data from that same database and serves responses as JSON documents. Filters on the data should be implemented, preferably as query parameters.
+- An endpoint that expects a payload containing a URL, which points to a very large CSV file (a few GBs) hosted somewhere. This endpoint should load the data in that CSV file and save it to a local database.
+- An endpoint that shows the status of the file import process (a simple "running"/"finished"/... will do).
+- An endpoint that allows cancelling a running import process.
 
-Each endpoint needs to be implemented as its own standalone application: basically these will be two tiny microservices. They will share the underlying data storage, but will not be aware of each other.
-
-Both apps, as well as the underlying dependencies, must be configured to run using a docker-compose file you must provide. You can use either NodeJS, Python or Rails.
+Your code, as well as any underlying dependencies, must be configured to run using a docker-compose file you must provide.
 
 Please document in the code/config files any significant decisions you make as you go (be concise).
 
@@ -25,32 +24,32 @@ Tests are a plus.
 
 These are the minimum things your solution must do so we can properly evaluate your approach. We tried to keep it easy and simple, as to not take up much of your time:
 
-- Use your favourite ORM/DB abstraction library to handle database objects.
-- Use a framework - it may be overkill for such small apps, but real-world apps are never this small.
+- If you have used it before, use TypeScript for your solution. Solutions in vanilla JavaScript will also be accepted, but only if you haven't used TypeScript before.  
+- Use the same tools you would use in a production-grade project - it may be overkill for such a small app, but real-world apps are never this small.
 - Document how to start your application in a docker + docker-compose environment.
-- There is no need to create a web interface
+- There is no need to create a web interface or worry about user authentication/authorization
 
 ## 3. Optional Goals:
 
 Found the basic requirements too easy? Want to go the extra mile to impress us? Whatever the reason is, here are some optional ways in which you can give us a better sense of your approach, of your analytical and communication skills and of what you care about:
 
-- If you know more than one of the programming languages we’re looking for, implement each microservice using a different one. In other words, extra kudos will be given if you use two different ones, one per app.
 - Add tests to your code.
-- Add complex filters.
+- Add more complex import status report (like a "percentage completed" estimation, or an ETA, for example).
 - We use and love open source software, and all OSS code must be properly documented. Add relevant documentation, beyond the “quickstart”, as you would for a publicly available OSS project.
 
 ## 4. Things to keep in mind:
 
-- Be pragmatic and mindful of the trade-off between feature-completeness and complexity/performance.
-- In a real world scenario, the data file could be a lot larger.
-- Assume a "write once, read many" scenario, where users may be willing to wait a few minutes for the file to be uploaded, depending on its size, but the GET endpoint needs to be fast.
-- This code challenge should match your CV. If you have experience with Rails or NodeJS, use the language/framework you are most proficient in. If you have experience with both, use this as an opportunity to impress us with your multi-language skills.
+- Your application and architecture can be as simple or as complex as you want, but be pragmatic and mindful of the trade-off between feature-completeness and complexity/performance/time to implement.
+- Assume that users are ok with imports not being instantaneous.
+- If you are not sure about a particular requirement/detail, make an educated guess and document your assumption.
+- This code challenge should match your CV. If you have experience with any tools that are perfect for this task, this is your opportunity to demonstrate that, and impress us.
 - **Please submit your ideas to us in 1 week (max)**. This will give us enough time to review your challenge with the rest of the team before the next interview. 
 - Based on the experiences of previous candidates, we believe **it will take you between 6 and 10 hours to complete the challenge**. If you see yourself allocating a lot more than that, you are including too much and/or overcomplicating it :)
 
 ## 5. Data
 
-[emissions.csv](data/emissions.csv)
+You can use one of the datasets available on the [NYC TLC Trip Record Data page](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page), like the
+[Jan 2021 High Volume For-Hire Vehicle Trip Records (CSV)](https://nyc-tlc.s3.amazonaws.com/trip+data/fhvhv_tripdata_2021-01.csv). Keep in mind that these are large files, and your solution should be ready to handle similar files with gigabytes of data, given the necessary computational resources.
 
 ## 6. So, I submit the challenge. What will happen during the interview?
 
