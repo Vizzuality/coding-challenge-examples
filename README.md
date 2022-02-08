@@ -10,7 +10,7 @@ As such, through this challenge we are not expecting to check if you know the fi
 
 As part of this exercise, you need to build a small REST API. This API should have three endpoints:
 
-- An endpoint that expects a payload containing a URL, which points to a very large CSV file (a few GBs) hosted somewhere. This endpoint should load the data in that CSV file and save it to a local database.
+- An endpoint that expects a payload containing a URL, which points to a very large CSV file (multiple GBs) hosted somewhere. This endpoint should load the data in that CSV file and save it to a local database.
 - An endpoint that shows the status of the file import process (a simple "running"/"finished"/... will do).
 - An endpoint that allows cancelling a running import process.
 
@@ -22,7 +22,7 @@ Tests are a plus.
 
 ## 2. Basic Requirements:
 
-These are the minimum things your solution must do so we can properly evaluate your approach. We tried to keep it easy and simple, as to not take up much of your time:
+These are the minimum things your solution must do, so we can properly evaluate your approach. We tried to keep it easy and simple, as to not take up much of your time:
 
 - If you have used it before, use TypeScript for your solution. Solutions in vanilla JavaScript will also be accepted, but only if you haven't used TypeScript before.  
 - Use the same tools you would use in a production-grade project - it may be overkill for such a small app, but real-world apps are never this small.
@@ -48,8 +48,7 @@ Found the basic requirements too easy? Want to go the extra mile to impress us? 
 
 ## 5. Data
 
-You can use one of the datasets available on the [NYC TLC Trip Record Data page](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page), like the
-[Jan 2021 High Volume For-Hire Vehicle Trip Records (CSV)](https://nyc-tlc.s3.amazonaws.com/trip+data/fhvhv_tripdata_2021-01.csv). Keep in mind that these are large files, and your solution should be ready to handle similar files with gigabytes of data, given the necessary computational resources.
+Use the [Jan 2021 High Volume For-Hire Vehicle Trip Records (CSV)](https://nyc-tlc.s3.amazonaws.com/trip+data/fhvhv_tripdata_2021-01.csv) (around 700MB) dataset from [NYC TLC Trip Record Data page](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page) as your import data file. Your application only needs to support files with this structure (same columns, with the same data types, in the same position of the csv). However, your solution needs to smoothly handle file sizes a few orders of magnitude higher than this one - this is just a (large) sample. 
 
 ## 6. So, I submit the challenge. What will happen during the interview?
 
