@@ -48,7 +48,7 @@ Found the basic requirements too easy? Want to go the extra mile to impress us? 
 
 ## 5. Data
 
-Use the [Jan 2021 High Volume For-Hire Vehicle Trip Records (CSV)](https://nyc-tlc.s3.amazonaws.com/trip+data/fhvhv_tripdata_2021-01.csv) (around 700MB) dataset from [NYC TLC Trip Record Data page](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page) as your import data file. Your application only needs to support files with this structure (same columns, with the same data types, in the same position of the csv). However, your solution needs to smoothly handle file sizes a few orders of magnitude higher than this one - this is just a (large) sample. 
+Use the [Jan 2024 High Volume For-Hire Vehicle Trip Records (CSV)](https://public-vizz-storage.s3.amazonaws.com/backend/coding-challenges/large-file-importer/fhvhv_tripdata_2024-01.csv) (around 2.9GB uncompressed) dataset, from the original Parquet data file from the [NYC TLC Trip Record Data page](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page) as your import data file. Your application only needs to support files with this structure (same columns, with the same data types, in the same position of the csv). However, your solution needs to smoothly handle file sizes a few orders of magnitude higher than this one - this is just a (large) sample.
 
 ## 6. So, I submit the challenge. What will happen during the interview?
 
