@@ -29,7 +29,14 @@ using a Compose file you must provide.
 Please document in the code/config files any significant decisions you make as
 you go (be concise).
 
-Tests are a plus (see also the section below on Optional Goals)
+Tests are a plus (see also the section below on Optional Goals).
+
+If you use LLM assistants as part of your daily engineering work, please feel
+free to use them for this challenge, but please be transparent about where you
+used them (project scaffolding? dev environment configuration? writing tests?
+Compose setup? etc.). We acknowledge that LLM assistants are an important part
+of engineers' development support tooling, and we are interested in
+understanding how you use them.
 
 ## 2. Basic Requirements
 
