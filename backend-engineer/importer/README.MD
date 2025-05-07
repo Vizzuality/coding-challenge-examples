@@ -48,12 +48,12 @@ This system must include:
 
 ### C. **Infrastructure & Tooling**
 
-* Use a single **public** GitHub repository (no need to create separate repositories for the services)
-* Provide a comprehensive commit tree
-* Use **Docker + docker-compose** to deliver a working setup. It 
-* Provide **unit and/or integration tests**.
+* Use a single GitHub repository (no need to create separate repositories for the services)
+* Provide a comprehensive commit history, so we can better understand your process and approach to version control
+* Use **Docker + docker-compose** to deliver a working setup. Provide a way to run your application with it and document how to do so.
+* Provide **unit and/or integration tests**. Use you preferred approach and tools for testing, but make sure that your application is well tested.
 * Use Typescript and any Node.js framework and ORM (e.g., Drizzle, Prisma, TypeORM).
-* Provide any code-styling tool of your choice (ESLint)
+* Provide any code-styling tool of your choice (e.g. ESLint)
 * Add a basic testing pipeline to your project. Your code should be automatically tested when pushed upstream.
 * Document the setup and usage in a `README.md`.
 
@@ -70,7 +70,7 @@ Whatever the reason is, here are some optional ways in which you can give us a b
 * Include profiling results or comments on performance considerations.
 * Add a metadata endpoint (e.g., `/status`) to expose info like total records, last import, schema version.
 * We use and love open source software, and all OSS code must be properly documented. Add relevant documentation, beyond the “quickstart”, as you would for a publicly available OSS project.
-* Do you think you can add useful features, or 
+* Do you think something is missing/you can add useful features? Go for it!
 
 ---
 
