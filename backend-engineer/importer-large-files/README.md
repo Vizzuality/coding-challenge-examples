@@ -1,136 +1,112 @@
-# Backend Software engineer @ Vizzuality "Large File Importer Challenge"
+# Backend Software Engineer @ Vizzuality — Large File Importer Challenge
+### Mid–Senior Level
 
-## Instructions for completing and submitting the challenge
+---
 
-First things first. This coding challenge is about creating a space for you to
-share with us how you work and reason, what things you care about when doing
-backend engineering work, and how you approach problem-solving.
+First things first. This coding challenge is a space for you to share with us how you work and reason, what you care about when doing backend engineering work, and how you approach problem-solving.
 
-As such, through this challenge we are not expecting to check if you know the
-finest algorithms, have all the right answers to a given situation or if you are
-the best coder in the world. We believe there are no right or wrong answers, so
-please make yourself comfortable and focus on what you know best.
+We are not looking for the finest algorithms, all the right answers, or the world's best coder. We believe there are no right or wrong answers — so please make yourself comfortable and focus on what you know best.
 
-## 1. This is what you need to do
+---
 
-As part of this exercise, you need to build a small REST API. This API should
-have three endpoints:
+## 1. What You Need to Build
 
-- An endpoint that expects a payload containing a URL, which points to a very
-  large CSV file (multiple GBs) hosted somewhere. This endpoint should load the
-  data in that CSV file and save it to a local database.
-- An endpoint that shows the status of the file import process (a simple
-  "running"/"finished"/... will do).
+Design and implement a small system split across two microservices:
+
+**A. CSV Import Service**
+- An endpoint that accepts a payload containing a URL pointing to a very large CSV file (multiple GBs) hosted somewhere. This endpoint should load the data from that CSV file and persist it to a local database.
+- An endpoint that exposes the status of the import process (e.g. "running" / "finished" / "failed").
 - An endpoint that allows cancelling a running import process.
 
-Your code, as well as any underlying dependencies, must be configured to run
-using a Compose file you must provide.
+**B. Query API Service**
+- Exposes a REST API to query the imported dataset.
+- Must support filtering by any field (via query parameters), pagination, and sorting.
+- Must return results quickly — optimise for read performance.
 
-Please document in the code/config files any significant decisions you make as
-you go (be concise).
+Both services share the same database. All code and dependencies must run via a Docker Compose file that you provide.
 
-Tests are a plus (see also the section below on Optional Goals).
+Please document any significant decisions directly in your code or config files — be concise but clear.
 
-If you use LLM assistants as part of your daily engineering work, please feel
-free to use them for this challenge, but please be transparent about where you
-used them (project scaffolding? dev environment configuration? writing tests?
-Compose setup? etc.). We acknowledge that LLM assistants are an important part
-of engineers' development support tooling, and we are interested in
-understanding how you use them.
+---
 
 ## 2. Basic Requirements
 
-These are the minimum things your solution must do, so we can properly evaluate
-your approach. We tried to keep it easy and simple, as to not take up much of
-your time:
+These are the minimum things your solution must include:
 
-- Use TypeScript or typed Python for your solution. These are the core languages
-  we use at Vizzuality.
-- Provide a way to run your application with Compose and document how to do so.
-- Use the same tools you would use in a production-grade project (API
-  frameworks, test runners/frameworks, test coverage reporting, build tools,
-  linters, formatters... - only as far as you need them: these are just
-  examples). This may be overkill for such a small app, but real-world apps are
-  never this small.
-- There is no need to create a web interface or worry about user
-  authentication/authorization.
+- **One service must use Node.js and TypeScript.** The other service may also use Node.js/TypeScript, or optionally Python (typed). These are the core languages we use at Vizzuality.
+- Use a single GitHub repository. Provide a comprehensive commit history so we can follow your process.
+- Provide a working Docker Compose setup and document how to run it.
+- Use the same tools you would reach for in a production-grade project: API frameworks, ORMs, build tools, linters, formatters — only as far as you actually need them.
+- No web interface or authentication/authorization is required.
+- **Tests are mandatory.** Provide a meaningful test suite (unit and/or integration) with coverage reporting for each service, using whatever testing framework you prefer.
+- **CI/CD pipeline using GitHub Actions.** Tests must run automatically on push (CI). Also include a CD pipeline example — it does not need to deploy to a real environment, but should illustrate how you would structure a deployment workflow (e.g. build, push image, deploy stage).
+- **Cloud architecture design document.** Describe or sketch how you would deploy and operate this system in a cloud environment. We are especially interested in your reasoning around:
+  - Service selection and justification given the workload characteristics
+  - How you would handle large file ingestion at scale
+  - Database choice and configuration for write-heavy import workloads vs. read-heavy query workloads
+  - Observability: logging, metrics, and alerting strategy
+  - Trade-offs between cost, operational complexity, and reliability
+  - A Terraform/OpenTofu IaC sketch, architecture diagram, or a well-written design document are all valid formats.
+
+---
 
 ## 3. Optional Goals
 
-Found the basic requirements too easy? Want to go the extra mile to impress us?
-Whatever the reason is, below are some **optional** ways in which you can give
-us a better sense of your approach, of your analytical and communication skills
-and of what you care about.
+Found the basics too easy, or want to go the extra mile? Below are optional ways to give us a better sense of your depth, analytical thinking, and engineering instincts. None of these are required, but they are valued.
 
-- Add tests to your code or outline a testing strategy
+**A. Richer Import Status**
+Add more detail to the import status endpoint — e.g. percentage completed, estimated time remaining, record counts. Or briefly describe how you would implement this, the technical challenges it raises, and how it scales.
 
-You can implement a minimal but meaningful test suite using a testing framework,
-or outline in a short design document how you would test this application.
+**B. Performance & Scalability Notes**
+Comment on the performance characteristics of your implementation: throughput bottlenecks, memory footprint, concurrency model, and how your approach would hold up if the file were 10× or 100× larger than the sample provided.
 
-- Add more complex import status report (like a "percentage completed"
-  estimation, or an ETA, for example).
+---
 
-You can implement a way to report the progress of the process, or outline
-briefly how you would do it, which challenges you anticipate at scale, and so
-on.
+## 4. Things to Keep in Mind
 
-- How would you deploy this application in a cloud environment?
+- Be pragmatic. We value a clean, working solution over an incomplete one crammed with features.
+- Users are fine with imports taking tens of seconds or even minutes. Do not optimise for sub-second response times on the import trigger endpoint.
+- If a requirement is unclear, make an educated guess and document your assumption. We care more about your reasoning than the specific choice.
+- This code challenge should reflect your CV. If you have hands-on experience with tools that are a natural fit here, use them and show us why.
+- Based on previous candidates' experience, this should take between 6 and 10 hours. If you find yourself well beyond that, you may be over-engineering it.
 
-You can add some basic Terraform/OpenTofu IaC setup, or outline how you would
-approach deploying and running this application in a cloud environment: in this
-case a brief design document or a pencil-on-paper sketch could be meaningful
-ways to share your way of thinking and expertise.
+---
 
-## 4. Things to keep in mind
+## 5. Using AI Tools
 
-- Your application and architecture can be as simple or as complex as you want,
-  but be pragmatic and mindful of the trade-off between feature-completeness and
-  complexity/performance/time to implement.
-- Assume that users are ok with imports taking tens of seconds or even minutes
-  (basically with anything that would not qualify as a "fast" response in terms
-  of a frontend application, or that would cause a gateway timeout under
-  sensible configurations).
-- If you are not sure about a particular requirement/detail, make an educated
-  guess and document your assumption.
-- This code challenge should match your CV. If you have experience with any
-  tools that are perfect for this task, this is your opportunity to demonstrate
-  that, and impress us.
-- **Please submit your ideas to us within the timeframe agreed with your hiring
-  manager** (usually one week). This will give us enough time to review your
-  challenge with the rest of the team before the next interview.
-- Based on the experiences of previous candidates, we believe **it will take you
-  between 6 and 10 hours to complete the challenge**. If you see yourself
-  allocating a lot more than that, you may be including too much or
-  overcomplicating things :)
+If you use LLM assistants as part of your daily engineering work, please feel free to use them for this challenge. We use AI tools at Vizzuality and see them as a legitimate and valuable part of a modern engineer's toolkit.
 
-## 5. Data
+We do ask for transparency about where and how you used them. In your submission, briefly note which parts of the work involved AI assistance — for example:
 
-Use the [Jan 2024 High Volume For-Hire Vehicle Trip Records
-(CSV)](https://public-vizz-storage.s3.amazonaws.com/backend/coding-challenges/large-file-importer/fhvhv_tripdata_2024-01.csv)
-(around 2.9GB uncompressed) dataset, from the original Parquet data file from
-the [NYC TLC Trip Record Data
-page](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page) as your
-import data file. Your application only needs to support files with this
-structure (same columns, with the same data types, in the same position of the
-csv). However, your solution needs to smoothly handle file sizes up to two
-orders of magnitude higher than this one - this is just a (large) sample.
+- Project scaffolding or boilerplate generation
+- Writing or reviewing tests
+- Docker / Compose configuration
+- Architecture brainstorming or cloud design
+- Code review, refactoring, or debugging
 
-## 6. So, I submit the challenge. What will happen during the interview?
+**We are hiring engineers, not vibe-coders.** What we want to understand is how you think, what you choose to delegate to AI, what you verify, and where you push back. A solution built uncritically from AI output with no understanding of the underlying trade-offs will be evident in the interview.
 
-- In the upcoming interview we will take some time to understand more about you,
-  your skills, and your previous experiences that relate to this role. We’ll
-  take some time to explore together your coding challenge submission, and we
-  will ask you questions to clarify anything that we may be unsure about.
-- This will also be an opportunity for you to provide some more context about
-  the challenge, the assumptions you made, and add anything you might want.
-- Finally, we will also allocate some time for you to ask any questions about
-  anything and everything you would like to know more about (ie. the role we are
-  hiring for, how we work at Vizzuality, our culture, benefits, etc.)
-- The interview will last 120 minutes (max)
+---
 
-If you have any other questions about the challenge, please reach out to your
-hiring manager.
+## 6. Data
 
-**“The Importer Challenge” has been created with the sole intention of being
-used as a guiding document for the current recruitment process. This means we
-won't be using it (all or parts of it) within our projects.**
+Use the [Jan 2024 High Volume For-Hire Vehicle Trip Records (CSV)](https://public-vizz-storage.s3.amazonaws.com/backend/coding-challenges/large-file-importer/fhvhv_tripdata_2024-01.csv) (~2.9 GB uncompressed) from the [NYC TLC Trip Record Data page](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page) as your import dataset.
+
+Your application only needs to support files with this specific structure (same columns, same data types, same column order). However, your solution must handle file sizes up to two orders of magnitude larger than this sample — this is just a (large) representative slice.
+
+---
+
+## 7. Submission & What Happens Next
+
+**Please submit within the timeframe agreed with your hiring manager** (typically one week). This gives the team enough time to review before the next interview.
+
+During the interview (120 minutes max) we will:
+
+1. Take time to understand your background, skills, and experience relevant to this role.
+2. Walk through your submission together and ask clarifying questions.
+3. Give you space to add context, explain assumptions, or highlight anything you want us to notice.
+4. Leave time for any questions you have about the role, the team, how we work, and Vizzuality as a company.
+
+---
+
+*"The Importer Challenge" has been created solely for use as part of Vizzuality's recruitment process and will not be used in any of our projects.*
